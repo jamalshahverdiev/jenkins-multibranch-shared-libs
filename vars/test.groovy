@@ -11,16 +11,16 @@
 //  }
 //  println content.text
 //}
-def urltoJob = "https://jenkins.kblab.local"
+def urltoJob = 'https://jenkins.domain.name'
 void postToSlack(curlCreds, jenkinsUrl, projectName, jobName, jobUrl) {
-//   def postToJenkins = dsl.sh(
-//            script: """
-//                    curl -s -k -X POST -L --user $curlCreds \"$jenkinsUrl/$projectName/job/$jobName/buildWithParameters?buildUrl=${jobUrl}\"
-//                    """,
-//            returnStdout: true
-//        ).trim()
+    //   def postToJenkins = dsl.sh(
+    //            script: """
+    //                    curl -s -k -X POST -L --user $curlCreds \"$jenkinsUrl/$projectName/job/$jobName/buildWithParameters?buildUrl=${jobUrl}\"
+    //                    """,
+    //            returnStdout: true
+    //        ).trim()
     def postToJenkins = "curl -s -k -X POST -L --user $curlCreds \"$jenkinsUrl/$projectName/job/$jobName/buildWithParameters?buildUrl=${jobUrl}\""
     println postToJenkins
 }
-//curl -s -k -X POST -L --user $JENKINS_API_CREDS "https://jenkins.kblab.local/job/Atlas/job/Test-Slack/buildWithParameters?buildUrl=${replaceJksScheme}"
-postToSlack("admin:123", "https://jenkins.kblab.local/job", "atlas", "Test-Slack", urltoJob)
+//curl -s -k -X POST -L --user $JENKINS_API_CREDS "https://jenkins.domain.name/job/Atlas/job/Test-Slack/buildWithParameters?buildUrl=${replaceJksScheme}"
+postToSlack('admin:123', 'https://jenkins.domain.name/job', 'atlas', 'Test-Slack', urltoJob)

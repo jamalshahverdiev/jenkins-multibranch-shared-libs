@@ -43,7 +43,7 @@ String isMergeRequest() {
 
 void dockerLogin(dockerPassword) {
    echo "Login to the Docker"
-   sh "for port in 8083 8089; do docker login -u jenkins -p ${dockerPassword} nexus.kblab.local:\$port/v1/repositories/; done"
+   sh "for port in 8083 8089; do docker login -u jenkins -p ${dockerPassword} nexus.domain.name:\$port/v1/repositories/; done"
    echo "Docker login successful"
 }
 
